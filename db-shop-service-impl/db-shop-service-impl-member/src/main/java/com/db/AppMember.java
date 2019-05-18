@@ -14,7 +14,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableSwagger2Doc
 @MapperScan("com.db.member.mapper")
 public class AppMember {
-    //vvvvvv
     public static void main(String[] args) {
         SpringApplication.run(AppMember.class,args);
     }
