@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="db-shop-service-impl-weixin" />
+        <module name="db-shop-basics-discovery" />
+        <module name="db-shop-service-impl-member" />
+        <module name="db-shop-service-api-weixin" />
+        <module name="db-shop-service-api-member" />
+        <module name="db-shop-basics-zuul" />
+        <module name="db-shop-api-weixin-dto" />
+        <module name="db-shop-portal" />
+        <module name="db-shop-api-member-dto" />
+        <module name="db-shop-common-core" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="dbshopserviceimplmember" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="db-shop-api-dto" options="-parameters" />
+      <module name="db-shop-api-member-dto" options="-parameters" />
+      <module name="db-shop-api-weixin-dto" options="-parameters" />
+      <module name="db-shop-basics-discovery" options="-parameters" />
+      <module name="db-shop-basics-zuul" options="-parameters" />
+      <module name="db-shop-common-core" options="-parameters" />
+      <module name="db-shop-portal" options="-parameters" />
+      <module name="db-shop-service-api" options="-parameters" />
+      <module name="db-shop-service-api-member" options="-parameters" />
+      <module name="db-shop-service-api-weixin" options="-parameters" />
+      <module name="db-shop-service-impl" options="-parameters" />
+      <module name="db-shop-service-impl-member" options="-parameters" />
+      <module name="db-shop-service-impl-weixin" options="-parameters" />
+      <module name="dbshopserviceimplmember" options="-parameters" />
+    </option>
+  </component>
+</project>

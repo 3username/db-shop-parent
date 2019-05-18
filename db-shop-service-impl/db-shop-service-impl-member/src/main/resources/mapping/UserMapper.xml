@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.db.member.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.db.member.model.User">
+    <id column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="MOBILE" jdbcType="VARCHAR" property="mobile" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="SEX" jdbcType="BIT" property="sex" />
+    <result column="AGE" jdbcType="TINYINT" property="age" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="IS_AVALIBLE" jdbcType="BIT" property="isAvalible" />
+    <result column="PIC_IMG" jdbcType="VARCHAR" property="picImg" />
+    <result column="QQ_OPENID" jdbcType="VARCHAR" property="qqOpenid" />
+    <result column="WX_OPENID" jdbcType="VARCHAR" property="wxOpenid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    USER_ID, MOBILE, EMAIL, PASSWORD, USER_NAME, SEX, AGE, CREATE_TIME, IS_AVALIBLE, 
+    PIC_IMG, QQ_OPENID, WX_OPENID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from meite_user
+    where USER_ID = #{userId,jdbcType=INTEGER}
+  </select>
+  <select id="existMobile" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from meite_user
+    where mobile = #{mobile,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from meite_user
+    where USER_ID = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.db.member.model.User">
+    insert into meite_user (USER_ID, MOBILE, EMAIL, 
+      PASSWORD, USER_NAME, SEX, 
+      AGE, CREATE_TIME, IS_AVALIBLE, 
+      PIC_IMG, QQ_OPENID, WX_OPENID
+      )
+    values (#{userId,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT},
+      #{age,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{isAvalible,jdbcType=BIT}, 
+      #{picImg,jdbcType=VARCHAR}, #{qqOpenid,jdbcType=VARCHAR}, #{wxOpenid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.db.member.model.User">
+    insert into meite_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="mobile != null">
+        MOBILE,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="password != null">
+        PASSWORD,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="sex != null">
+        SEX,
+      </if>
+      <if test="age != null">
+        AGE,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="isAvalible != null">
+        IS_AVALIBLE,
+      </if>
+      <if test="picImg != null">
+        PIC_IMG,
+      </if>
+      <if test="qqOpenid != null">
+        QQ_OPENID,
+      </if>
+      <if test="wxOpenid != null">
+        WX_OPENID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=BIT},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isAvalible != null">
+        #{isAvalible,jdbcType=BIT},
+      </if>
+      <if test="picImg != null">
+        #{picImg,jdbcType=VARCHAR},
+      </if>
+      <if test="qqOpenid != null">
+        #{qqOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="wxOpenid != null">
+        #{wxOpenid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.db.member.model.User">
+    update meite_user
+    <set>
+      <if test="mobile != null">
+        MOBILE = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        SEX = #{sex,jdbcType=BIT},
+      </if>
+      <if test="age != null">
+        AGE = #{age,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isAvalible != null">
+        IS_AVALIBLE = #{isAvalible,jdbcType=BIT},
+      </if>
+      <if test="picImg != null">
+        PIC_IMG = #{picImg,jdbcType=VARCHAR},
+      </if>
+      <if test="qqOpenid != null">
+        QQ_OPENID = #{qqOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="wxOpenid != null">
+        WX_OPENID = #{wxOpenid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where USER_ID = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.db.member.model.User">
+    update meite_user
+    set MOBILE = #{mobile,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=BIT},
+      AGE = #{age,jdbcType=TINYINT},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      IS_AVALIBLE = #{isAvalible,jdbcType=BIT},
+      PIC_IMG = #{picImg,jdbcType=VARCHAR},
+      QQ_OPENID = #{qqOpenid,jdbcType=VARCHAR},
+      WX_OPENID = #{wxOpenid,jdbcType=VARCHAR}
+    where USER_ID = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>

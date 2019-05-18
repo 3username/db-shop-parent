@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-api-dto" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-api-dto/db-shop-api-member-dto" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-api-dto/db-shop-api-weixin-dto" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-basics" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-basics/db-shop-basics-discovery" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-basics/db-shop-basics-zuul" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-common/db-shop-common-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-portal" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-service-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-service-api/db-shop-service-api-member" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-service-api/db-shop-service-api-weixin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-service-impl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-service-impl/db-shop-service-impl-member" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-service-impl/db-shop-service-impl-weixin" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
