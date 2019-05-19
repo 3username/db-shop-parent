@@ -1,11 +1,11 @@
 package com.db.core.utils;
 
-import com.db.base.BaseApiService;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
 
-public class Assert extends BaseApiService {
+public class Assert {
     /**
      * 参数为空抛异常
      * @param object
@@ -27,8 +27,6 @@ public class Assert extends BaseApiService {
             throw new IllegalArgumentException(message);
         }
     }
-
-
 
 
     /**

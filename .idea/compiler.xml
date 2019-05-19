@@ -7,12 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="db-shop-service-impl-weixin" />
-        <module name="db-shop-basics-discovery" />
         <module name="db-shop-service-impl-member" />
         <module name="db-shop-service-api-weixin" />
         <module name="db-shop-service-api-member" />
-        <module name="db-shop-basics-zuul" />
         <module name="db-shop-api-weixin-dto" />
+        <module name="db-shop-basics-zuul" />
+        <module name="db-shop-basics-discovery" />
         <module name="db-shop-portal" />
         <module name="db-shop-api-member-dto" />
         <module name="db-shop-common-core" />

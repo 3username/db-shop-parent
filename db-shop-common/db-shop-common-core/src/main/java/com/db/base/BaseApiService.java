@@ -1,5 +1,6 @@
 package com.db.base;
 
+import com.alibaba.fastjson.JSONObject;
 import com.db.constants.Constants;
 import lombok.Data;
 import org.springframework.stereotype.Component;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Component;
 @Data
 @Component
 public class BaseApiService<T> {
+
 
     /**返回错误，*/
     public BaseResponse setResultError(Integer code,String msg){
