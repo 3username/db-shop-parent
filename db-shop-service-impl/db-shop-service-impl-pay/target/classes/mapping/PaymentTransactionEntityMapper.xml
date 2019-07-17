@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.db.pay.mapper.PaymentTransactionEntityMapper">
+  <resultMap id="BaseResultMap" type="com.db.pay.model.PaymentTransactionEntity">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="PAY_AMOUNT" jdbcType="BIGINT" property="payAmount" />
+    <result column="PAYMENT_STATUS" jdbcType="INTEGER" property="paymentStatus" />
+    <result column="USER_ID" jdbcType="BIGINT" property="userId" />
+    <result column="ORDER_ID" jdbcType="VARCHAR" property="orderId" />
+    <result column="REVISION" jdbcType="INTEGER" property="revision" />
+    <result column="CREATED_BY" jdbcType="VARCHAR" property="createdBy" />
+    <result column="CREATED_TIME" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="UPDATED_BY" jdbcType="VARCHAR" property="updatedBy" />
+    <result column="UPDATED_TIME" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="PARTYPAY_ID" jdbcType="VARCHAR" property="partypayId" />
+    <result column="PAYMENT_ID" jdbcType="VARCHAR" property="paymentId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PAY_AMOUNT, PAYMENT_STATUS, USER_ID, ORDER_ID, REVISION, CREATED_BY, CREATED_TIME, 
+    UPDATED_BY, UPDATED_TIME, PARTYPAY_ID, PAYMENT_ID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from payment_transaction
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from payment_transaction
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert"  parameterType="com.db.pay.model.PaymentTransactionEntity" keyProperty="id" useGeneratedKeys="true">
+    insert into payment_transaction (ID, PAY_AMOUNT, PAYMENT_STATUS, 
+      USER_ID, ORDER_ID, REVISION, 
+      CREATED_BY, CREATED_TIME, UPDATED_BY, 
+      UPDATED_TIME, PARTYPAY_ID, PAYMENT_ID
+      )
+    values (#{id,jdbcType=BIGINT}, #{payAmount,jdbcType=BIGINT}, #{paymentStatus,jdbcType=INTEGER},
+      #{userId,jdbcType=BIGINT}, #{orderId,jdbcType=VARCHAR}, #{revision,jdbcType=INTEGER}, 
+      #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
+      #{updatedTime,jdbcType=TIMESTAMP}, #{partypayId,jdbcType=VARCHAR}, #{paymentId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.db.pay.model.PaymentTransactionEntity">
+    insert into payment_transaction
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="payAmount != null">
+        PAY_AMOUNT,
+      </if>
+      <if test="paymentStatus != null">
+        PAYMENT_STATUS,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="orderId != null">
+        ORDER_ID,
+      </if>
+      <if test="revision != null">
+        REVISION,
+      </if>
+      <if test="createdBy != null">
+        CREATED_BY,
+      </if>
+      <if test="createdTime != null">
+        CREATED_TIME,
+      </if>
+      <if test="updatedBy != null">
+        UPDATED_BY,
+      </if>
+      <if test="updatedTime != null">
+        UPDATED_TIME,
+      </if>
+      <if test="partypayId != null">
+        PARTYPAY_ID,
+      </if>
+      <if test="paymentId != null">
+        PAYMENT_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="payAmount != null">
+        #{payAmount,jdbcType=BIGINT},
+      </if>
+      <if test="paymentStatus != null">
+        #{paymentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="revision != null">
+        #{revision,jdbcType=INTEGER},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="partypayId != null">
+        #{partypayId,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentId != null">
+        #{paymentId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.db.pay.model.PaymentTransactionEntity">
+    update payment_transaction
+    <set>
+      <if test="payAmount != null">
+        PAY_AMOUNT = #{payAmount,jdbcType=BIGINT},
+      </if>
+      <if test="paymentStatus != null">
+        PAYMENT_STATUS = #{paymentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="orderId != null">
+        ORDER_ID = #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="revision != null">
+        REVISION = #{revision,jdbcType=INTEGER},
+      </if>
+      <if test="createdBy != null">
+        CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        UPDATED_BY = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        UPDATED_TIME = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="partypayId != null">
+        PARTYPAY_ID = #{partypayId,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentId != null">
+        PAYMENT_ID = #{paymentId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.db.pay.model.PaymentTransactionEntity">
+    update payment_transaction
+    set PAY_AMOUNT = #{payAmount,jdbcType=BIGINT},
+      PAYMENT_STATUS = #{paymentStatus,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=BIGINT},
+      ORDER_ID = #{orderId,jdbcType=VARCHAR},
+      REVISION = #{revision,jdbcType=INTEGER},
+      CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      UPDATED_BY = #{updatedBy,jdbcType=VARCHAR},
+      UPDATED_TIME = #{updatedTime,jdbcType=TIMESTAMP},
+      PARTYPAY_ID = #{partypayId,jdbcType=VARCHAR},
+      PAYMENT_ID = #{paymentId,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectByPaymentId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from payment_transaction
+    where PAYMENT_ID = #{paymentId,jdbcType=VARCHAR}
+  </select>
+
+  <update id="updatePaymentStatus" >
+    update payment_transaction
+    set PAYMENT_STATUS = #{paymentStatus,jdbcType=INTEGER}
+    where PAYMENT_ID = #{paymentId}
+  </update>
+</mapper>

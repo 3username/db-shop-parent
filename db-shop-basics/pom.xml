@@ -13,6 +13,7 @@
     <modules>
         <module>db-shop-basics-discovery</module>
         <module>db-shop-basics-zuul</module>
+        <module>db-shop-basics-xxl-sso-server</module>
     </modules>
 
 

@@ -14,6 +14,8 @@
         <module>db-shop-portal</module>
         <module>db-shop-api-dto</module>
         <module>db-shop-common</module>
+        <module>db-shop-plugin</module>
+        <module>db-shop-job</module>
     </modules>
     <packaging>pom</packaging>
 

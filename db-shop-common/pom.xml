@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>db-shop-common-core</module>
+        <module>db-shop-common-web-core</module>
     </modules>
 
 

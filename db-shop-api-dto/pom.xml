@@ -13,6 +13,8 @@
     <modules>
         <module>db-shop-api-weixin-dto</module>
         <module>db-shop-api-member-dto</module>
+        <module>db-shop-api-product-dto</module>
+        <module>db-shop-api-pay-dto</module>
     </modules>
 
     <dependencies>

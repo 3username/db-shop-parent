@@ -1,6 +1,5 @@
 package com.db.base;
 
-import com.alibaba.fastjson.JSONObject;
 import com.db.constants.Constants;
 import lombok.Data;
 import org.springframework.stereotype.Component;
@@ -47,4 +46,34 @@ public class BaseApiService<T> {
     public BaseResponse<T> setResult(Integer code, String msg, T data) {
         return new BaseResponse<T>(code, msg, data);
     }
+
+    /** 调用数据库层判断*/
+    public Boolean toDaoResult(int result){
+        return result > 0 ? true : false;
+    }
+
+    /**
+     *   接口直接返回true，false
+     *   为空 或响应码等于500 返回false
+     */
+    public Boolean isSuccess(BaseResponse<?> baseResponse){
+        if(baseResponse == null){
+            return false;
+        }
+        if(baseResponse.getCode().equals(Constants.HTTP_RES_CODE_500)){
+            return false;
+        }
+        return true;
+
+    }
+    // 接口直接返回true 或者false
+   /* public Boolean isSuccess(BaseResponse<?> baseResp) {
+        if (baseResp == null) {
+            return false;
+        }
+        if (baseResp.getCode().equals(Constants.HTTP_RES_CODE_500)) {
+            return false;
+        }
+        return true;
+    }*/
 }

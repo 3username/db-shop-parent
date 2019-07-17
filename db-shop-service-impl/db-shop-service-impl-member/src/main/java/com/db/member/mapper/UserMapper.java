@@ -4,19 +4,25 @@ import com.db.member.model.User;
 import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
-    int deleteByPrimaryKey(Integer userId);
+    int deleteByPrimaryKey(Long userId);
 
     int insert(User record);
 
     int insertSelective(User record);
 
-    User selectByPrimaryKey(Integer userId);
+    User selectByPrimaryKey(Long userId);
 
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
 
     User login(@Param("mobile") String mobile,@Param("password")String password);
+
+    /**根据openId查找用户信息*/
+    User findByOpenId(@Param("qqOpenId")String qqOpenId);
+
+    /**绑定授权账号*/
+    int updateUserOpenId(@Param("qqOpenId")String qqOpenId,@Param("userId") Long userId);
 
     //@Insert("INSERT INTO `meite_user` VALUES (null,#{mobile}, #{email}, #{password}, #{userName}, null, null, null, '1', null, null, null);")
     //int register(User userDo);

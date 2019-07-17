@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.db.pay.mapper.PaymentTransactionLogEntityMapper">
+  <resultMap id="BaseResultMap" type="com.db.pay.model.PaymentTransactionLogEntity">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="CHANNEL_ID" jdbcType="BIGINT" property="channelId" />
+    <result column="TRANSACTION_ID" jdbcType="BIGINT" property="transactionId" />
+    <result column="REVISION" jdbcType="INTEGER" property="revision" />
+    <result column="CREATED_BY" jdbcType="VARCHAR" property="createdBy" />
+    <result column="CREATED_TIME" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="UPDATED_BY" jdbcType="VARCHAR" property="updatedBy" />
+    <result column="UPDATED_TIME" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="untitled" jdbcType="VARCHAR" property="untitled" />
+    <result column="SYNCH_LOG" jdbcType="LONGVARCHAR" property="synchLog" />
+    <result column="ASYNC_LOG" jdbcType="LONGVARCHAR" property="asyncLog" />
+  </resultMap>
+<!--  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.db.pay.model.paymentTransactionLogEntityWithBLOBs">-->
+<!--    <result column="SYNCH_LOG" jdbcType="LONGVARCHAR" property="synchLog" />-->
+<!--    <result column="ASYNC_LOG" jdbcType="LONGVARCHAR" property="asyncLog" />-->
+<!--  </resultMap>-->
+  <sql id="Base_Column_List">
+    ID, CHANNEL_ID, TRANSACTION_ID, REVISION, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME, 
+    untitled
+  </sql>
+  <sql id="Blob_Column_List">
+    SYNCH_LOG, ASYNC_LOG
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from payment_transaction_log
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from payment_transaction_log
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" >
+    insert into payment_transaction_log (ID, CHANNEL_ID, TRANSACTION_ID, 
+      REVISION, CREATED_BY, CREATED_TIME, 
+      UPDATED_BY, UPDATED_TIME, untitled, 
+      SYNCH_LOG, ASYNC_LOG)
+    values (#{id,jdbcType=BIGINT}, #{channelId,jdbcType=BIGINT}, #{transactionId,jdbcType=BIGINT}, 
+      #{revision,jdbcType=INTEGER}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{untitled,jdbcType=VARCHAR}, 
+      #{synchLog,jdbcType=LONGVARCHAR}, #{asyncLog,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" >
+    insert into payment_transaction_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="channelId != null">
+        CHANNEL_ID,
+      </if>
+      <if test="transactionId != null">
+        TRANSACTION_ID,
+      </if>
+      <if test="revision != null">
+        REVISION,
+      </if>
+      <if test="createdBy != null">
+        CREATED_BY,
+      </if>
+      <if test="createdTime != null">
+        CREATED_TIME,
+      </if>
+      <if test="updatedBy != null">
+        UPDATED_BY,
+      </if>
+      <if test="updatedTime != null">
+        UPDATED_TIME,
+      </if>
+      <if test="untitled != null">
+        untitled,
+      </if>
+      <if test="synchLog != null">
+        SYNCH_LOG,
+      </if>
+      <if test="asyncLog != null">
+        ASYNC_LOG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="channelId != null">
+        #{channelId,jdbcType=BIGINT},
+      </if>
+      <if test="transactionId != null">
+        #{transactionId,jdbcType=BIGINT},
+      </if>
+      <if test="revision != null">
+        #{revision,jdbcType=INTEGER},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="untitled != null">
+        #{untitled,jdbcType=VARCHAR},
+      </if>
+      <if test="synchLog != null">
+        #{synchLog,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="asyncLog != null">
+        #{asyncLog,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" >
+    update payment_transaction_log
+    <set>
+      <if test="channelId != null">
+        CHANNEL_ID = #{channelId,jdbcType=BIGINT},
+      </if>
+      <if test="transactionId != null">
+        TRANSACTION_ID = #{transactionId,jdbcType=BIGINT},
+      </if>
+      <if test="revision != null">
+        REVISION = #{revision,jdbcType=INTEGER},
+      </if>
+      <if test="createdBy != null">
+        CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        UPDATED_BY = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        UPDATED_TIME = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="untitled != null">
+        untitled = #{untitled,jdbcType=VARCHAR},
+      </if>
+      <if test="synchLog != null">
+        SYNCH_LOG = #{synchLog,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="asyncLog != null">
+        ASYNC_LOG = #{asyncLog,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" >
+    update payment_transaction_log
+    set CHANNEL_ID = #{channelId,jdbcType=BIGINT},
+      TRANSACTION_ID = #{transactionId,jdbcType=BIGINT},
+      REVISION = #{revision,jdbcType=INTEGER},
+      CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      UPDATED_BY = #{updatedBy,jdbcType=VARCHAR},
+      UPDATED_TIME = #{updatedTime,jdbcType=TIMESTAMP},
+      untitled = #{untitled,jdbcType=VARCHAR},
+      SYNCH_LOG = #{synchLog,jdbcType=LONGVARCHAR},
+      ASYNC_LOG = #{asyncLog,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.db.pay.model.PaymentTransactionLogEntity">
+    update payment_transaction_log
+    set CHANNEL_ID = #{channelId,jdbcType=BIGINT},
+      TRANSACTION_ID = #{transactionId,jdbcType=BIGINT},
+      REVISION = #{revision,jdbcType=INTEGER},
+      CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      UPDATED_BY = #{updatedBy,jdbcType=VARCHAR},
+      UPDATED_TIME = #{updatedTime,jdbcType=TIMESTAMP},
+      untitled = #{untitled,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

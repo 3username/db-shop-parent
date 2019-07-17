@@ -4,18 +4,37 @@
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/db-shop-api-dto" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/db-shop-api-dto/db-shop-api-member-dto" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-api-dto/db-shop-api-pay-dto" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-api-dto/db-shop-api-product-dto" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/db-shop-api-dto/db-shop-api-weixin-dto" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/db-shop-basics" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/db-shop-basics/db-shop-basics-discovery" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-basics/db-shop-basics-xxl-sso-server" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/db-shop-basics/db-shop-basics-zuul" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/db-shop-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/db-shop-common/db-shop-common-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-common/db-shop-common-web-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-job" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-job/db-shop-pay-job" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-plugin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-plugin/db-shop-alipay-plugin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-plugin/db-shop-unionpay-plugin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/db-shop-portal" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-portal/db-shop-portal-pay-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-portal/db-shop-portal-web" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/db-shop-service-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-service-api/db-shop-service-api-goods" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-service-api/db-shop-service-api-integral" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/db-shop-service-api/db-shop-service-api-member" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-service-api/db-shop-service-api-pay" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-service-api/db-shop-service-api-seckill" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/db-shop-service-api/db-shop-service-api-weixin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/db-shop-service-impl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-service-impl/db-shop-service-impl-goods" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-service-impl/db-shop-service-impl-integral" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/db-shop-service-impl/db-shop-service-impl-member" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-service-impl/db-shop-service-impl-pay" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-shop-service-impl/db-shop-service-impl-seckill" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/db-shop-service-impl/db-shop-service-impl-weixin" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>

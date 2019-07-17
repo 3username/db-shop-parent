@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.db.pay.mapper.PaymentChannelEntityMapper">
+  <resultMap id="BaseResultMap" type="com.db.pay.model.PaymentChannelEntity">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="CHANNEL_NAME" jdbcType="VARCHAR" property="channelName" />
+    <result column="CHANNEL_ID" jdbcType="VARCHAR" property="channelId" />
+    <result column="MERCHANT_ID" jdbcType="VARCHAR" property="merchantId" />
+    <result column="CHANNEL_STATE" jdbcType="INTEGER" property="channelState" />
+    <result column="REVISION" jdbcType="INTEGER" property="revision" />
+    <result column="CREATED_BY" jdbcType="VARCHAR" property="createdBy" />
+    <result column="CREATED_TIME" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="UPDATED_BY" jdbcType="VARCHAR" property="updatedBy" />
+    <result column="UPDATED_TIME" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="CLASS_ADDRES" jdbcType="VARCHAR" property="classAddres" />
+
+    <result column="SYNC_URL" jdbcType="LONGVARCHAR" property="syncUrl" />
+    <result column="ASYN_URL" jdbcType="LONGVARCHAR" property="asynUrl" />
+    <result column="PUBLIC_KEY" jdbcType="LONGVARCHAR" property="publicKey" />
+    <result column="PRIVATE_KEY" jdbcType="LONGVARCHAR" property="privateKey" />
+  </resultMap>
+<!--  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.db.pay.model.PaymentChannelEntityWithBLOBs">-->
+<!--    <result column="SYNC_URL" jdbcType="LONGVARCHAR" property="syncUrl" />-->
+<!--    <result column="ASYN_URL" jdbcType="LONGVARCHAR" property="asynUrl" />-->
+<!--    <result column="PUBLIC_KEY" jdbcType="LONGVARCHAR" property="publicKey" />-->
+<!--    <result column="PRIVATE_KEY" jdbcType="LONGVARCHAR" property="privateKey" />-->
+<!--  </resultMap>-->
+  <sql id="Base_Column_List">
+    ID, CHANNEL_NAME, CHANNEL_ID, MERCHANT_ID, CHANNEL_STATE, REVISION, CREATED_BY, CREATED_TIME, 
+    UPDATED_BY, UPDATED_TIME, CLASS_ADDRES, SYNC_URL, ASYN_URL, PUBLIC_KEY, PRIVATE_KEY
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from payment_channel
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from payment_channel
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.db.pay.model.PaymentChannelEntity">
+    insert into payment_channel (ID, CHANNEL_NAME, CHANNEL_ID, 
+      MERCHANT_ID, CHANNEL_STATE, REVISION, 
+      CREATED_BY, CREATED_TIME, UPDATED_BY, 
+      UPDATED_TIME, CLASS_ADDRES, SYNC_URL, 
+      ASYN_URL, PUBLIC_KEY, PRIVATE_KEY
+      )
+    values (#{id,jdbcType=BIGINT}, #{channelName,jdbcType=VARCHAR}, #{channelId,jdbcType=VARCHAR}, 
+      #{merchantId,jdbcType=VARCHAR}, #{channelState,jdbcType=INTEGER}, #{revision,jdbcType=INTEGER}, 
+      #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
+      #{updatedTime,jdbcType=TIMESTAMP}, #{classAddres,jdbcType=VARCHAR}, #{syncUrl,jdbcType=LONGVARCHAR}, 
+      #{asynUrl,jdbcType=LONGVARCHAR}, #{publicKey,jdbcType=LONGVARCHAR}, #{privateKey,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.db.pay.model.PaymentChannelEntity">
+    insert into payment_channel
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="channelName != null">
+        CHANNEL_NAME,
+      </if>
+      <if test="channelId != null">
+        CHANNEL_ID,
+      </if>
+      <if test="merchantId != null">
+        MERCHANT_ID,
+      </if>
+      <if test="channelState != null">
+        CHANNEL_STATE,
+      </if>
+      <if test="revision != null">
+        REVISION,
+      </if>
+      <if test="createdBy != null">
+        CREATED_BY,
+      </if>
+      <if test="createdTime != null">
+        CREATED_TIME,
+      </if>
+      <if test="updatedBy != null">
+        UPDATED_BY,
+      </if>
+      <if test="updatedTime != null">
+        UPDATED_TIME,
+      </if>
+      <if test="classAddres != null">
+        CLASS_ADDRES,
+      </if>
+      <if test="syncUrl != null">
+        SYNC_URL,
+      </if>
+      <if test="asynUrl != null">
+        ASYN_URL,
+      </if>
+      <if test="publicKey != null">
+        PUBLIC_KEY,
+      </if>
+      <if test="privateKey != null">
+        PRIVATE_KEY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="channelName != null">
+        #{channelName,jdbcType=VARCHAR},
+      </if>
+      <if test="channelId != null">
+        #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantId != null">
+        #{merchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="channelState != null">
+        #{channelState,jdbcType=INTEGER},
+      </if>
+      <if test="revision != null">
+        #{revision,jdbcType=INTEGER},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="classAddres != null">
+        #{classAddres,jdbcType=VARCHAR},
+      </if>
+      <if test="syncUrl != null">
+        #{syncUrl,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="asynUrl != null">
+        #{asynUrl,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="publicKey != null">
+        #{publicKey,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="privateKey != null">
+        #{privateKey,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.db.pay.model.PaymentChannelEntity">
+    update payment_channel
+    <set>
+      <if test="channelName != null">
+        CHANNEL_NAME = #{channelName,jdbcType=VARCHAR},
+      </if>
+      <if test="channelId != null">
+        CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantId != null">
+        MERCHANT_ID = #{merchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="channelState != null">
+        CHANNEL_STATE = #{channelState,jdbcType=INTEGER},
+      </if>
+      <if test="revision != null">
+        REVISION = #{revision,jdbcType=INTEGER},
+      </if>
+      <if test="createdBy != null">
+        CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        UPDATED_BY = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        UPDATED_TIME = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="classAddres != null">
+        CLASS_ADDRES = #{classAddres,jdbcType=VARCHAR},
+      </if>
+      <if test="syncUrl != null">
+        SYNC_URL = #{syncUrl,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="asynUrl != null">
+        ASYN_URL = #{asynUrl,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="publicKey != null">
+        PUBLIC_KEY = #{publicKey,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="privateKey != null">
+        PRIVATE_KEY = #{privateKey,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.db.pay.model.PaymentChannelEntity">
+    update payment_channel
+    set CHANNEL_NAME = #{channelName,jdbcType=VARCHAR},
+      CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+      MERCHANT_ID = #{merchantId,jdbcType=VARCHAR},
+      CHANNEL_STATE = #{channelState,jdbcType=INTEGER},
+      REVISION = #{revision,jdbcType=INTEGER},
+      CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      UPDATED_BY = #{updatedBy,jdbcType=VARCHAR},
+      UPDATED_TIME = #{updatedTime,jdbcType=TIMESTAMP},
+      CLASS_ADDRES = #{classAddres,jdbcType=VARCHAR},
+      SYNC_URL = #{syncUrl,jdbcType=LONGVARCHAR},
+      ASYN_URL = #{asynUrl,jdbcType=LONGVARCHAR},
+      PUBLIC_KEY = #{publicKey,jdbcType=LONGVARCHAR},
+      PRIVATE_KEY = #{privateKey,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.db.pay.model.PaymentChannelEntity">
+    update payment_channel
+    set CHANNEL_NAME = #{channelName,jdbcType=VARCHAR},
+      CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+      MERCHANT_ID = #{merchantId,jdbcType=VARCHAR},
+      CHANNEL_STATE = #{channelState,jdbcType=INTEGER},
+      REVISION = #{revision,jdbcType=INTEGER},
+      CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      UPDATED_BY = #{updatedBy,jdbcType=VARCHAR},
+      UPDATED_TIME = #{updatedTime,jdbcType=TIMESTAMP},
+      CLASS_ADDRES = #{classAddres,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+
+  <!--查找所有支付渠道-->
+  <select id="selectAll"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from payment_channel
+    where CHANNEL_STATE='0'
+  </select>
+
+  <!--根据渠道id值查找支付渠道信息-->
+  <select id="selectBychannelId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from payment_channel
+    where channel_id = #{channelId,jdbcType=VARCHAR} and CHANNEL_STATE='0'
+  </select>
+
+</mapper>

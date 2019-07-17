@@ -13,6 +13,8 @@ public interface Constants {
     // 系统错误
     Integer HTTP_RES_CODE_500 = 500;
     // 未关联QQ账号
+    Integer HTTP_RES_CODE_EXISIMOBILE_203 = 203;
+    // 未关联QQ账号
     Integer HTTP_RES_CODE_201 = 201;
     // 发送邮件
     String MSG_EMAIL = "email";
@@ -27,5 +29,12 @@ public interface Constants {
     String WEIXINCODE_KEY = "weixin.code";
     // 微信注册码有效期30分钟
     Long WEIXINCODE_TIMEOUT = 1800l;
+    // 用户信息不存在
+    Integer HTTP_RES_CODE_NOTUSER_203 = 203;
+    // 登陆超时时间 有效期 90天
+    Long MEMBRE_LOGIN_TOKEN_TIME = 77776000L;
+    // token
+    String MEMBER_TOKEN_KEYPREFIX = "mt.mb.login";
+
 
 }

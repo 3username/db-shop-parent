@@ -14,6 +14,10 @@
     <modules>
         <module>db-shop-service-impl-weixin</module>
         <module>db-shop-service-impl-member</module>
+        <module>db-shop-service-impl-goods</module>
+        <module>db-shop-service-impl-pay</module>
+        <module>db-shop-service-impl-integral</module>
+        <module>db-shop-service-impl-seckill</module>
 
     </modules>
 

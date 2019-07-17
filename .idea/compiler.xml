@@ -6,16 +6,32 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="db-shop-service-impl-weixin" />
-        <module name="db-shop-service-impl-member" />
-        <module name="db-shop-service-api-weixin" />
-        <module name="db-shop-service-api-member" />
+        <module name="db-shop-basics-xxl-sso-server" />
         <module name="db-shop-api-weixin-dto" />
-        <module name="db-shop-basics-zuul" />
+        <module name="db-shop-service-impl-integral" />
+        <module name="db-shop-service-api-seckill" />
         <module name="db-shop-basics-discovery" />
-        <module name="db-shop-portal" />
+        <module name="db-shop-service-api-goods" />
+        <module name="db-shop-pay-job" />
+        <module name="db-shop-service-impl-pay" />
+        <module name="db-shop-service-impl-weixin" />
+        <module name="db-shop-service-api-member" />
+        <module name="db-shop-api-product-dto" />
+        <module name="db-shop-common-web-core" />
+        <module name="db-shop-portal-web" />
         <module name="db-shop-api-member-dto" />
+        <module name="db-shop-service-impl-goods" />
+        <module name="db-shop-service-api-pay" />
+        <module name="db-shop-unionpay-plugin" />
+        <module name="db-shop-service-api-integral" />
+        <module name="db-shop-service-impl-member" />
         <module name="db-shop-common-core" />
+        <module name="db-shop-api-pay-dto" />
+        <module name="db-shop-basics-zuul" />
+        <module name="db-shop-portal-pay-web" />
+        <module name="db-shop-service-impl-seckill" />
+        <module name="db-shop-alipay-plugin" />
+        <module name="db-shop-service-api-weixin" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -24,19 +40,37 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="db-shop-alipay-plugin" options="-parameters" />
       <module name="db-shop-api-dto" options="-parameters" />
       <module name="db-shop-api-member-dto" options="-parameters" />
+      <module name="db-shop-api-pay-dto" options="-parameters" />
+      <module name="db-shop-api-product-dto" options="-parameters" />
       <module name="db-shop-api-weixin-dto" options="-parameters" />
       <module name="db-shop-basics-discovery" options="-parameters" />
+      <module name="db-shop-basics-xxl-sso-server" options="-parameters" />
       <module name="db-shop-basics-zuul" options="-parameters" />
       <module name="db-shop-common-core" options="-parameters" />
+      <module name="db-shop-common-web-core" options="-parameters" />
+      <module name="db-shop-pay-job" options="-parameters" />
+      <module name="db-shop-plugin" options="-parameters" />
       <module name="db-shop-portal" options="-parameters" />
+      <module name="db-shop-portal-pay-web" options="-parameters" />
+      <module name="db-shop-portal-web" options="-parameters" />
       <module name="db-shop-service-api" options="-parameters" />
+      <module name="db-shop-service-api-goods" options="-parameters" />
+      <module name="db-shop-service-api-integral" options="-parameters" />
       <module name="db-shop-service-api-member" options="-parameters" />
+      <module name="db-shop-service-api-pay" options="-parameters" />
+      <module name="db-shop-service-api-seckill" options="-parameters" />
       <module name="db-shop-service-api-weixin" options="-parameters" />
       <module name="db-shop-service-impl" options="-parameters" />
+      <module name="db-shop-service-impl-goods" options="-parameters" />
+      <module name="db-shop-service-impl-integral" options="-parameters" />
       <module name="db-shop-service-impl-member" options="-parameters" />
+      <module name="db-shop-service-impl-pay" options="-parameters" />
+      <module name="db-shop-service-impl-seckill" options="-parameters" />
       <module name="db-shop-service-impl-weixin" options="-parameters" />
+      <module name="db-shop-unionpay-plugin" options="-parameters" />
       <module name="dbshopserviceimplmember" options="-parameters" />
     </option>
   </component>

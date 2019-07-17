@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.db.member.mapper.UserMapper">
   <resultMap id="BaseResultMap" type="com.db.member.model.User">
-    <id column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <id column="USER_ID" jdbcType="BIGINT" property="userId" />
     <result column="MOBILE" jdbcType="VARCHAR" property="mobile" />
     <result column="EMAIL" jdbcType="VARCHAR" property="email" />
     <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
@@ -23,7 +23,7 @@
     select 
     <include refid="Base_Column_List" />
     from meite_user
-    where USER_ID = #{userId,jdbcType=INTEGER}
+    where USER_ID = #{userId,jdbcType=BIGINT}
   </select>
 
   <!--根据手机号码查询用户信息-->
@@ -32,6 +32,14 @@
     <include refid="Base_Column_List"></include>
     from meite_user
     where mobile = #{mobile,jdbcType=VARCHAR}
+  </select>
+
+  <!--根据 qq openId 查询用户授权信息信息-->
+  <select id="findByOpenId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from meite_user
+    where QQ_OPENID = #{qqOpenId,jdbcType=VARCHAR}
   </select>
 
   <!--根据手机号码和密码登录账号-->
@@ -45,7 +53,7 @@
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from meite_user
-    where USER_ID = #{userId,jdbcType=INTEGER}
+    where USER_ID = #{userId,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.db.member.model.User">
     insert into meite_user (USER_ID, MOBILE, EMAIL, 
@@ -53,7 +61,7 @@
       AGE, CREATE_TIME, IS_AVALIBLE, 
       PIC_IMG, QQ_OPENID, WX_OPENID
       )
-    values (#{userId,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+    values (#{userId,jdbcType=BIGINT}, #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR},
       #{password,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT},
       #{age,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{isAvalible,jdbcType=BIT}, 
       #{picImg,jdbcType=VARCHAR}, #{qqOpenid,jdbcType=VARCHAR}, #{wxOpenid,jdbcType=VARCHAR}
@@ -101,7 +109,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="userId != null">
-        #{userId,jdbcType=INTEGER},
+        #{userId,jdbcType=BIGINT},
       </if>
       <if test="mobile != null">
         #{mobile,jdbcType=VARCHAR},
@@ -175,8 +183,9 @@
         WX_OPENID = #{wxOpenid,jdbcType=VARCHAR},
       </if>
     </set>
-    where USER_ID = #{userId,jdbcType=INTEGER}
+    where USER_ID = #{userId,jdbcType=BIGINT}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="com.db.member.model.User">
     update meite_user
     set MOBILE = #{mobile,jdbcType=VARCHAR},
@@ -190,6 +199,12 @@
       PIC_IMG = #{picImg,jdbcType=VARCHAR},
       QQ_OPENID = #{qqOpenid,jdbcType=VARCHAR},
       WX_OPENID = #{wxOpenid,jdbcType=VARCHAR}
-    where USER_ID = #{userId,jdbcType=INTEGER}
+    where USER_ID = #{userId,jdbcType=BIGINT}
+  </update>
+
+  <update id="updateUserOpenId">
+    update meite_user
+    set qq_openid = #{qqOpenId}
+    where user_id = #{userId}
   </update>
 </mapper>
