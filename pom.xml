@@ -23,7 +23,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <fastjson.version>1.2.30</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <commons.net.version>3.3</commons.net.version>
     </properties>
 
